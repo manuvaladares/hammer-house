@@ -1,0 +1,28 @@
+{
+  "name": "hammer-house",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "ts-node src/index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/manuvaladares/hammer-house.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/manuvaladares/hammer-house/issues"
+  },
+  "homepage": "https://github.com/manuvaladares/hammer-house#readme",
+  "devDependencies": {
+    "@types/node": "^24.10.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  }
+}
