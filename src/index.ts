@@ -27,3 +27,15 @@ interface ItemDeValor extends Item {
 }
 
 type itemLeilao = Casa | Carro | ItemDeValor;
+
+class Repositorio<T> {
+    private itens: T[] = [];
+
+    adicionar(item: T): void {
+        this.itens.push(item);
+    }
+
+    listarTodas(): T[] {
+        return this.itens;
+    }
+}
