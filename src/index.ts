@@ -28,14 +28,19 @@ interface ItemDeValor extends Item {
 
 type itemLeilao = Casa | Carro | ItemDeValor;
 
+const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
+
 class Repositorio<T> {
     private itens: T[] = [];
 
-    adicionar(item: T): void {
+    async adicionar(item: T): Promise<void> {
+        await delay(1000);
         this.itens.push(item);
+        console.log("Item salvo no banco de dados");
     }
 
-    listarTodas(): T[] {
+    async listarTodas(): Promise<T[]> {
+        await delay(1000);
         return this.itens;
     }
 }
