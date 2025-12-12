@@ -28,6 +28,14 @@ interface ItemDeValor extends Item {
 
 type itemLeilao = Casa | Carro | ItemDeValor;
 
+interface Lance {
+    valor: number;
+    item: itemLeilao;
+    usuario: string;
+    datetime: Date;
+}
+
+
 const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
 class Repositorio<T> {
