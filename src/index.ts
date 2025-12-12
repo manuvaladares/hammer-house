@@ -26,11 +26,11 @@ interface ItemDeValor extends Item {
     tipo: TipoItem.ItemDeValor;
 }
 
-type itemLeilao = Casa | Carro | ItemDeValor;
+type ItemLeilao = Casa | Carro | ItemDeValor;
 
 interface Lance {
     valor: number;
-    item: itemLeilao;
+    item: ItemLeilao;
     usuario: string;
     datetime: Date;
 }
@@ -39,16 +39,21 @@ interface Lance {
 const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
 class Repositorio<T> {
-    private itens: T[] = [];
+    private elementos: T[] = [];
 
-    async adicionar(item: T): Promise<void> {
+    async adicionar(elemento: T): Promise<void> {
         await delay(1000);
-        this.itens.push(item);
-        console.log("Item salvo no banco de dados");
+        this.elementos.push(elemento);
+        console.log("Elemento salvo no banco de dados");
     }
 
     async listarTodas(): Promise<T[]> {
         await delay(1000);
-        return this.itens;
+        return this.elementos;
     }
+}
+
+class SistemaLeilao {
+    private repoItens = new Repositorio<ItemLeilao>();
+    private repoLances = new Repositorio<Lance>();
 }
