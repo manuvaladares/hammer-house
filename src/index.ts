@@ -56,4 +56,9 @@ class Repositorio<T> {
 class SistemaLeilao {
     private repoItens = new Repositorio<ItemLeilao>();
     private repoLances = new Repositorio<Lance>();
+
+    async cadastraItem(item : ItemLeilao): Promise<void> {
+        await this.repoItens.adicionar(item);
+        console.log("Item cadastrado no Leilão")
+    }
 }
