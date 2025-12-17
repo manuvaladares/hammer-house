@@ -6,7 +6,6 @@ export class Repositorio<T> {
     async adicionar(elemento: T): Promise<void> {
         await delay(1000);
         this.elementos.push(elemento);
-        console.log("Elemento salvo no banco de dados");
     }
 
     async listarTodas(): Promise<T[]> {

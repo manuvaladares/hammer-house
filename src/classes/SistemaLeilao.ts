@@ -17,8 +17,7 @@ export class SistemaLeilao {
         await delay(2000);
         
         if (lance.valor < lance.item.precoInicial) {
-            console.error(`Lance recusado: O valor R$${lance.valor} é menor que o inicial R$${lance.item.precoInicial}`);
-            throw new Error("Lance rejeitado: Valor menor que o mínimo.");
+            throw new Error(`Lance rejeitado: R$${lance.valor} é menor que o mínimo.`);
         }
         
         await this.repoLances.adicionar(lance);
