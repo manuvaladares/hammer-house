@@ -27,7 +27,7 @@ export class LeilaoService {
   }
 
   findAll() {
-    return `This action returns all leilao`;
+    return this.leiloes;
   }
 
   darLance(lance: Lance) { 
