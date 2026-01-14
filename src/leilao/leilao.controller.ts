@@ -2,6 +2,7 @@ import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/commo
 import { LeilaoService } from './leilao.service';
 import { CreateLeilaoDto } from './dto/create-leilao.dto';
 import { UpdateLeilaoDto } from './dto/update-leilao.dto';
+import { CreateLanceDto } from './dto/create-lance.dto';
 
 @Controller('leilao')
 export class LeilaoController {
@@ -10,6 +11,11 @@ export class LeilaoController {
   @Post()
   create(@Body() createLeilaoDto: CreateLeilaoDto) {
     return this.leilaoService.create(createLeilaoDto);
+  }
+
+  @Post('lance') 
+  darLance(@Body() createLanceDto: CreateLanceDto) {
+    return this.leilaoService.darLance(createLanceDto);
   }
 
   @Get()
