@@ -1,5 +1,14 @@
+import { IsString, IsNumber, Min, IsNotEmpty } from 'class-validator';
+
 export class CreateLanceDto {
-  usuario: string;
-  valor: number;
-  leilaoId: number;
+    @IsString()
+    @IsNotEmpty()
+    usuario: string;
+
+    @IsNumber()
+    @Min(1)
+    valor: number;
+
+    @IsNumber()
+    leilaoId: number;
 }
