@@ -2,10 +2,27 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 generator client {
-  provider = "prisma-client"
-  output   = "../generated/prisma"
+  provider = "prisma-client-js"
 }
 
 datasource db {
   provider = "sqlite"
+}
+
+model Leilao {
+  id           Int      @id @default(autoincrement()) // ID automático (1, 2, 3...)
+  nome         String
+  precoInicial Float
+  usado        Boolean  @default(false)
+  lances       Lance[]  // Relação: Um leilão tem vários lances
+  createdAt    DateTime @default(now())
+}
+
+model Lance {
+  id        Int      @id @default(autoincrement())
+  usuario   String
+  valor     Float
+  leilaoId  Int
+  leilao    Leilao   @relation(fields: [leilaoId], references: [id]) // Conecta com a tabela Leilao
+  createdAt DateTime @default(now())
 }

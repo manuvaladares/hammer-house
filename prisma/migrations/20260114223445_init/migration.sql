@@ -1,0 +1,18 @@
+-- CreateTable
+CREATE TABLE "Leilao" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "nome" TEXT NOT NULL,
+    "precoInicial" REAL NOT NULL,
+    "usado" BOOLEAN NOT NULL DEFAULT false,
+    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+-- CreateTable
+CREATE TABLE "Lance" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "usuario" TEXT NOT NULL,
+    "valor" REAL NOT NULL,
+    "leilaoId" INTEGER NOT NULL,
+    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT "Lance_leilaoId_fkey" FOREIGN KEY ("leilaoId") REFERENCES "Leilao" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
+);
